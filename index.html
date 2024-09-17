@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H2 - M05</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('gnius_club')">
+        <div class="title">
+            <span>🎉 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo Total: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Dar la bienvenida a los Genios, hacer un scan de su estado de ánimo, hacer nuestro ritual de agradecimiento y presentar los objetivos de la misión.</div>
+    </div>
+    <div id="gnius_club" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 1 "Gnius Club".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Buenos días, jóvenes desarrolladores! Hoy tenemos una misión emocionante. Vamos a explorar cómo gestionar la información en la pestaña de datos de Glide. ¿Están listos?</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 2 "¿Cómo están?".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de pasar a nuestro agradecimiento me gustaría saber cómo están. Adopten la postura de acuerdo a cómo se sienten. Si están aburridos, crucen los brazos. Si están emocionados por iniciar la misión levanten el puño.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 3 y guiar a los estudiantes para el ritual "Gracias por Asistir".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a juntar nuestras manos en agradecimiento por lo que vamos aprender hoy ¡Gracias por Asistir!</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 4 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">El día de hoy tenemos 3 objetivos para nuestra misión. Vamos a conocer la pestaña de datos en Glide, aprender a gestionar la información de la aplicación y organizar los datos para una aplicación de lista de tareas.</div>
+
+        </div>
+    </div>
+</div>
+<!-- Actividad 2 (3 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_del_dia')">
+        <div class="title">
+            <span>💡 Actividad 2: Innovación del Día (3 pasos)</span>
+            <span>⏰ Tiempo Total: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Presentar un producto, página, aplicación o invento innovador relacionado con el tema de la clase.</div>
+    </div>
+    <div id="innovacion_del_dia" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 5 "Innovación del Día".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy vamos a conocer una aplicación innovadora que ha cambiado la manera en que monitorizamos y mejoramos nuestro rendimiento deportivo: Strava. Strava es mucho más que una simple aplicación para registrar actividades físicas; está diseñada con un uso inteligente y estratégico de datos para ofrecer una experiencia personalizada y valiosa para cada usuario. Vamos a ver un pequeño video.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 6 "Video Strava".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Desde el momento en que empiezas a usar Strava, la aplicación recopila datos detallados sobre tus actividades: distancia, velocidad, elevación, ritmo cardíaco, y más. Pero lo más impresionante es cómo estos datos están cuidadosamente diseñados y procesados para ofrecerte insights claros y accionables. Strava no solo te muestra números, sino que los convierte en información útil: analiza tus rutas para sugerirte mejoras, compara tu rendimiento con el de otros usuarios en segmentos similares, y te ayuda a identificar tendencias y patrones en tu entrenamiento.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 7 "Cierre Strava".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Esta planificación de datos en el diseño no es al azar; cada métrica tiene un propósito definido, como motivarte, ayudarte a superar tus propios récords, y mantenerte conectado con una comunidad de personas con intereses similares. Imaginen poder ver exactamente dónde pueden acelerar en su próxima carrera o cómo han progresado en sus entrenamientos a lo largo del tiempo. Es esta estructura de datos bien pensada la que hace que Strava no solo registre tus movimientos, sino que los convierta en una experiencia enriquecedora que te impulsa a ser mejor cada día.</div>
+
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (16 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">
+            <span>🧠 Actividad 3: Brain Gym (16 pasos)</span>
+            <span>⏰ Tiempo Total: 20 minutos</span>
+        </div>
+        <div class="subtitle">Introducir la pestaña de datos en Glide y explicar cómo gestionarla.</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 8 "Pestaña de Datos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora vamos a sumergirnos en la pestaña de datos en Glide. Esta es la sección donde gestionaremos toda la información de nuestra aplicación.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 9 "Estructura de Datos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de empezar a crear una aplicación en Glide, es importante considerar la estructura de tus datos, es decir, de qué se trata tu app. Por ejemplo, un Directorio de Empleados puede ser bastante simple y tener solo dos tablas: una para Personas y otra para Ubicaciones. Sin embargo, si estás desarrollando una app para la gestión de inventarios, puede ser más compleja y necesitar tablas para Artículos de Inventario, Clientes, Proveedores y Pedidos. Si además hay un aspecto de entrega, podrías necesitar tablas adicionales para Entregas, Conductores, Vehículos y Almacenes.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 10 "Columnas Básicas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">En Glide, las columnas básicas son aquellas que simplemente contienen datos. Pueden ser de varios tipos, como números, textos, imágenes, etc.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Proyectar Diapositiva 11 "Crear Columnas Básicas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a ver cómo crear nuevas columnas básicas en Glide. Hacemos clic en el ícono (+) en la parte superior derecha del Editor de Datos.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 12 "Editar Columnas Básicas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para editar una columna básica, hacemos clic en el menú desplegable junto al nombre de la columna y seleccionamos "Editar". Podemos cambiar el nombre, tipo y otros atributos de la columna.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 13 "Tipos de Columnas Básicas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Las columnas básicas pueden ser de varios tipos: Número, Texto, Imagen, Fecha, etc. Cada tipo tiene sus propias propiedades y usos.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (2 minutos): Proyectar Diapositiva 14 "Columna Número".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a añadir una columna de tipo número y ver cómo podemos editar sus propiedades, como el formato y las restricciones de valor.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (2 minutos): Proyectar Diapositiva 15 "Columna Texto".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a añadir una columna de tipo texto y ver cómo podemos editar sus propiedades, como la longitud máxima y los valores predeterminados.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (2 minutos): Proyectar Diapositiva 16 "Columna Imagen".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a añadir una columna de tipo imagen y ver cómo podemos editar sus propiedades, como la carga de imágenes desde URLs o la selección de imágenes desde Pexels.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (2 minutos): Proyectar Diapositiva 17 "Columna Fecha".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a añadir una columna de tipo fecha y ver cómo podemos editar sus propiedades, como el formato de fecha y la selección de fechas.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 11 (1 minuto): Proyectar Diapositiva 18 "Eliminar Columnas Básicas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para eliminar una columna básica, usamos el menú desplegable al lado del nombre de la columna y seleccionamos "Eliminar".</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 12 (2 minutos): Proyectar Diapositiva 19 "Renombrar Columnas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para renombrar una columna, hacemos clic en el menú desplegable junto al nombre de la columna y seleccionamos "Editar". Podemos cambiar el nombre de la columna y otros atributos.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 13 (2 minutos): Proyectar Diapositiva 20 "Reordenar Columnas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para reordenar las columnas, simplemente arrastramos la cabecera de la columna a la posición deseada.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 14 (1 minuto): Proyectar Diapositiva 21 "Ocultar/Mostrar Columnas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Podemos ocultar o mostrar columnas manualmente usando el botón "Ocultar Columnas" en la esquina superior derecha del Editor de Datos.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 15 (2 minutos): Proyectar Diapositiva 22 "Find Uses".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La función "Find Uses" nos permite localizar todas las áreas de nuestra aplicación donde se está utilizando una columna específica. Esto es útil para entender cómo se están usando nuestros datos en la app.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 16 (1 minuto): Proyectar Diapositiva 23 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hemos alcanzado nuestro primer objetivo de conocer la pestaña de datos en Glide y aprender a gestionar la información de nuestra aplicación. Los objetivos de hoy eran: <br> 1. Conocer la pestaña de datos en Glide. <br> 2. Aprender a gestionar la información de la aplicación. <br> 3. Organizar los datos para una aplicación de lista de tareas.</div>
+
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (5 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">
+            <span>🔄 Actividad 4: State Change (5 pasos)</span>
+            <span>⏰ Tiempo Total: 3 minutos</span>
+        </div>
+        <div class="subtitle">Preparar mentalmente a los estudiantes para el reto con una actividad física.</div>
+    </div>
+    <div id="state_change" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 24 "State Change".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, vamos a hacer una breve actividad para preparar nuestras mentes para el reto que se avecina. Esta actividad nos ayudará a concentrarnos y energizarnos.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 25 "Desafío de Equilibrio".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a hacer una actividad llamada "Equilibrio de árbol". Levántense y busquen un espacio cómodo.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 26 "Instrucciones Desafío de Equilibrio".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La actividad consiste en mantener el equilibrio en diferentes posiciones. Cuando diga "Una pierna", levanten una pierna y mantengan el equilibrio en esa posición. Cuando diga "Árbol", levanten los brazos y junten las manos sobre la cabeza, mientras mantienen el equilibrio en una pierna. Vamos a ver si podemos lograrlo.</div>
+ 
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 27 "Realizar Actividad".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a empezar: <br> 1. Levanten una pierna y mantengan el equilibrio <br> 2. Cambien a la otra pierna y mantengan el equilibrio <br> 3. Postura de árbol: levanten los brazos y junten las manos sobre la cabeza mientras se equilibran en una pierna <br> 4. Inclínense hacia adelante manteniendo la postura de árbol <br> ¡Muy bien! Ahora vamos a intentar una combinación: <br> 1. Levanten una pierna, luego cambien a la otra <br> 2. Postura de árbol y luego inclínense hacia adelante.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (0.5 minutos): Proyectar Diapositiva 28 "Conclusión Actividad".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Excelente trabajo a todos! Ahora que estamos activados y concentrados, estamos listos para continuar con nuestro desafío.</div>
+
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (3 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">
+            <span>🤝 Actividad 5: Team Gnius (3 pasos)</span>
+            <span>⏰ Tiempo Total: 2 minutos</span>
+        </div>
+        <div class="subtitle">Formar equipos de trabajo para el reto.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 29 "Team Gnius".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">El reto que nos toca estos días se va hacer en equipos de 4. Así que les voy a dar 30 segundos para que decidan con quién van a trabajar.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 30 "Cronómetro de 30 segundos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, un representante de cada equipo, por favor pase al frente a recoger una Magic Tablet para su equipo. Tienen un minuto.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 31 "Cronómetro de 30 segundos" y entregar 4 Magic Tablets por representante.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora elijan un representante de cada equipo para que venga por sus Magic Tablets que es en donde van a trabajar sus ideas y registrar sus datos.</div>
+
+        </div>
+    </div>
+</div>
+<!-- Actividad 6 (7 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>🛠️ Actividad 6: Challenge (7 pasos)</span>
+            <span>⏰ Tiempo Total: 13 minutos</span>
+        </div>
+        <div class="subtitle">Introducir el desafío de la clase.</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 32 "Introducción al Challenge".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora es el momento de poner en práctica lo que hemos aprendido. Vamos a diseñar los datos para una aplicación de seguimiento de tareas o "To Do list".</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 33 "Detalles del Challenge".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Tienen que pensar en toda la información que necesitaría la aplicación y anotarla. Por ejemplo, podrían necesitar columnas para el nombre de la tarea, la fecha de vencimiento, la prioridad y el estado de la tarea (completada o no).</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 34 "Preparación".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Van a tener 10 minutos para pensar en los datos que necesitaría nuestra aplicación de "To Do list" y anotarlos en nuestras Magic Tablets ya que más adelante usarán esos datos para crear la aplicación.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (10 minutos): Proyectar Diapositiva 35 "Tiempo de Trabajo".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Tienen 10 minutos para diseñar sus datos. Adelante.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 36 "Guardar Trabajo".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, antes de terminar, asegúrense de tomar una foto de sus diseños de datos, ya que los utilizaremos en nuestra próxima clase.</div>
+
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (0.5 minutos): Proyectar Diapositiva 37 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hemos alcanzado nuestro segundo objetivo de aprender a gestionar la información de la aplicación. Los objetivos de hoy eran: <br> 1. Conocer la pestaña de datos en Glide. <br> 2. Aprender a gestionar la información de la aplicación. <br> 3. Organizar los datos para una aplicación de lista de tareas.</div>
+
+        </div>
+    </div>
+</div>
+<!-- Actividad 8 (1 paso) -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>🏆 Actividad 8: Honor de Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Honrar el espacio en donde trabajamos y crear una cultura de respeto a los demás al poner orden.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 38 y reproducir la animación de honor de dojo.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Cada equipo pase al frente y denme sus Magic Tablets.</div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>
+
